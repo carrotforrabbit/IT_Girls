@@ -1,0 +1,39 @@
+.main-opps {
+    
+}
+.main-opps__title {
+    margin: 0;
+    margin-left: 37px;
+    margin-bottom: 14px;
+    padding: 0;
+}
+.main-opps__list {
+    margin: 0;
+    margin-bottom: 86px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(365px, 1fr));
+    grid-template-rows: repeat(2fr 1fr);
+    list-style-type: none;
+}
+.main-opps__card {
+    padding: 25px 37px;
+    margin: 0;
+}
+.main-opps__img-container {
+    margin: 0;
+    margin-bottom: 45px;
+    padding: 0;
+    max-height: 233px;
+    background-color: #EC615B;
+}
+.main-opps__img {
+    display: block;
+    margin: 0 auto;
+}
+.main-opps__form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
