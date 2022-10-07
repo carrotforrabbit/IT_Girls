@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin-top: 100px;
+            background-color: aqua;
+        }
+
+        button {
+            display: block;
+            padding: 50px;
+            margin: 0 auto;
+            background-color: deeppink;
+            color: white;
+            border: 3px solid greenyellow;
+            border-radius: 20px;
+        }
+
+        button:hover {
+            background-color: greenyellow;
+            border: 3px solid deeppink;
+            color: darkblue;
+            transition: 0.5s;
+        }
+
+        button:active {
+            background-color: darkblue;
+            color: white;
+            border: 3px solid deeppink;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="showMessage()">Нажми меня</button>
+
+    <script>
+        function showMessage() {
+            let name = prompt("Как тебя зовут?");
+            alert(`Привет, ${name}! Пусть твой день будет радостным!`);
+        }
+    </script>
+</body>
+
+</html>

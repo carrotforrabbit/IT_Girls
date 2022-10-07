@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+
+    <style>
+        body {
+            margin-top: 300px;
+            background-color: aqua;
+        }
+
+        button {
+            display: block;
+            padding: 20px;
+            margin: 0 auto;
+            background-color: deeppink;
+            color: white;
+            border: 3px solid greenyellow;
+            border-radius: 20px;
+            font-size: 30px;
+        }
+
+        button:hover {
+            background-color: greenyellow;
+            border: 3px solid deeppink;
+            color: darkblue;
+        }
+
+        button:active {
+            background-color: darkblue;
+            color: white;
+            border: 3px solid deeppink;
+        }
+
+        .button-container {
+            width: 350px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <button onclick="calcSum()">+</button>
+        <button onclick="calcSubstraction()">-</button>
+        <button onclick="calcDevision()">/</button>
+        <button onclick="calcMultiply()">*</button>
+    </div>
+
+    <script>
+        let x = prompt('Напишите первое число');
+        let y = prompt('Напишите второе число');
+        alert('Нажмите на кнопку операции, которую вы хотите совершить с этими числами');
+
+        function calcSum() {
+            let result = (+x + +y);
+            alert(x + " + " + y + " = " + result);
+        }
+
+        function calcSubstraction() {
+            let result = (x - y);
+            alert(x + " - " + y + " = " + result);
+        }
+
+        function calcDevision() {
+            let result = (x / y);
+            alert(x + " / " + y + " = " + result);
+        }
+
+        function calcMultiply() {
+            let result = (x * y);
+            alert(x + " * " + y + " = " + result);
+        }
+    </script>
+</body>
+
+</html>
