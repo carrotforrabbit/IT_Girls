@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <style>
+        body {
+            margin-top: 50px;
+            background-color: azure;
+        }
+
+        button {
+            height: 30px;
+            width: 30px;
+            background-color: darkslategray;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: rgb(140, 155, 181);
+            color: midnightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="back" onclick="changeImgBack()">&#60;</button>
+    <img id="image" src="./img/2.jpeg" alt="Ocean">
+    <button type="button" id="forward" onclick="changeImg()">&#62;</button>
+    <script>
+        function changeImg() {
+            let image = document.getElementById('image');
+            image.src = "./img/1.jpeg";
+        }
+        function changeImgBack() {
+            let image = document.getElementById('image');
+            image.src = "./img/2.jpeg";
+        }
+    </script>
+</body>
+
+</html>

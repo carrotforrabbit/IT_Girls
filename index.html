@@ -9,42 +9,39 @@
     <style>
         body {
             margin-top: 100px;
-            background-color: aqua;
+            display: flex;
+            justify-content: space-around;
+            background-color: #5585b5;
         }
 
-        button {
-            display: block;
-            padding: 50px;
-            margin: 0 auto;
-            background-color: deeppink;
-            color: white;
-            border: 3px solid greenyellow;
-            border-radius: 20px;
+        div {
+            width: 300px;
+            height: 300px;
         }
 
-        button:hover {
-            background-color: greenyellow;
-            border: 3px solid deeppink;
-            color: darkblue;
-            transition: 0.5s;
+        #first {
+            background-color: #79c2d0;
         }
 
-        button:active {
-            background-color: darkblue;
-            color: white;
-            border: 3px solid deeppink;
-            transition: 0.5s;
+        #second {
+            background-color: #bbe4e9;
         }
     </style>
 </head>
 
 <body>
-    <button onclick="showMessage()">Нажми меня</button>
+    <div id="first" onclick="first()"></div>
+    <div id="second" onclick="second()"></div>
 
     <script>
-        function showMessage() {
-            let name = prompt("Как тебя зовут?");
-            alert(`Привет, ${name}! Пусть твой день будет радостным!`);
+        function first() {
+            let first = document.getElementById('first');
+            first.style.background = 'linear-gradient(to right, #74ebd5 0%, #9face6 100%)';
+        }
+
+        function second() {
+            let second = document.getElementById('second');
+            second.style.background = 'linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83))';
         }
     </script>
 </body>
