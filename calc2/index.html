@@ -66,6 +66,16 @@
         #results {
             margin-left: 5px;
         }
+
+        p {
+            display: flex;
+            justify-content: center;
+        }
+
+        .delete {
+            margin-top: 20px;
+            font-size: 12px;
+        }
     </style>
 </head>
 
@@ -78,6 +88,7 @@
         <label for="number2">Напишите второе число</label>
         <input id="number2" type="text">
     </div>
+    <p>Нажмите на знак операции:</p>
     <div class="button-container">
         <button onclick="calcSum()">+</button>
         <button onclick="calcSubstraction()">-</button>
@@ -87,6 +98,7 @@
     <div class="result-container"> Результат:
         <div id="results"></div>
     </div>
+    <button class="delete" type="button" onclick="clearInput()">Сбросить</button>
 
     <script>
         function calcSum() {
@@ -115,6 +127,12 @@
             let y = document.getElementById('number2');
             let result = (x.value * y.value);
             results.innerHTML = x.value + " * " + y.value + " = " + result;
+        }
+
+        function clearInput() {
+            document.getElementById('number1').value = null;
+            document.getElementById('number2').value = null;
+            results.innerHTML = null;
         }
     </script>
 </body>
