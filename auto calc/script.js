@@ -1,12 +1,12 @@
 const form = document.querySelector('.form');
-const auction = document.querySelector('.auction');
-const services = document.querySelectorAll('.inputServices');
-const result = document.querySelector('.result');
+const autoType = document.querySelector('.select');
+const services = document.querySelectorAll('.inputChoice');
+const result = document.querySelector('.results');
 
 form.onsubmit = (evt) => {
 	evt.preventDefault();
 	let total;
-	const status = auction.value;
+	const status = autoType.value;
 	total = +status;
 	console.log(total);
 
