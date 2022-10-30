@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: block;
+            margin: 0 auto;
+            padding: 100px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 600px;
+        }
+
+        .button {
+            padding: 10px;
+            margin: 20px;
+            width: 100px;
+            border: 2px solid darkcyan;
+            border-radius: 20px;
+            background-color: aquamarine;
+            cursor: pointer;
+        }
+
+        #input {
+            padding: 10px;
+            margin: 20px;
+            border: 2px solid darkcyan;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="header">Калькулятор</h1>
+        <p class="text">Введите числовой ряд</p>
+        <input type="text" id="input">
+        <button class="button button_result">Все!</button>
+        <p id="sort"></p>
+        <p id="sum"></p>
+        <button class="button button_clear">Сбросить</button>
+    </div>
+
+    <script>
+        const input = document.querySelector("#input");
+        const sortField = document.getElementById("sort");
+        const sumField = document.getElementById("sum");
+        const resultButton = document.querySelector(".button_result");
+        const clearButton = document.querySelector(".button_clear");
+        let numbers = [];
+        let showMass = [];
+
+        console.log(input);
+        input.addEventListener('change', () => {
+            sumField.innerHTML = '';
+            if (input.value !== '' && !/[^0-9]/g.test(input.value)) {
+                numbers.push(Number(input.value))
+                console.log(numbers);
+                input.value = '';
+            } else {
+                sumField.innerHTML = 'Введите цифры';
+                input.value = '';
+            }
+        });
+
+        resultButton.addEventListener("click", () => {
+
+            let sortMass = (a, b) => {
+                if (a > b) {
+                    return 1;
+                } else if (b > a) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            };
+
+            numbers.sort(sortMass);
+            for (i = 0; i < numbers.length; i++) {
+                showMass = showMass + numbers[i] + ` `;
+            }
+
+            console.log(numbers);
+            sortField.innerHTML = `Массив отсортирован: ` + showMass;
+
+            let sum = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+            }
+
+            console.log(numbers);
+            sumField.innerHTML = `Сумма массива: ` + sum;
+        });
+
+        clearButton.addEventListener("click", () => {
+            showMass.length = 0;
+            numbers.length = 0;
+            sortField.innerHTML = '';
+            sumField.innerHTML = '';
+        });
+
+    </script>
+
+</body>
+
+</html>

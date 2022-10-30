@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="body-container">
+        <h1 class="heading">Калькулятор стоимости машины</h1>
+        <form class="form" action="#">
+            <div class="form-container">
+                <div>
+                    <fieldset class="fieldset">
+                        <label for="autoType">Марка Автомобиля:</label>
+                        <select class="select" name="autoType" id="autoType">
+                            <option value=""></option>
+                            <option value="300.000">KIA</option>
+                            <option value="1.000.000">Ferrari</option>
+                            <option value="2.000.000">Lamborgini</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="">Модель Автомобля:</label>
+                        <select class="select" name="" id=""></select>
+                    </fieldset>
+                </div>
+                <fieldset class="fieldset fieldset_">
+                    <legend>Год выпуска:</legend>
+                    <label class="label" for="reallyOld">
+                        <span> 1990 - 2000</span>
+                        <input type="radio" id="reallyOld" name="year" value="5.000" checked />
+                    </label>
+                    <label class="label" for="old">
+                        <span>2001 - 2010</span>
+                        <input type="radio" id="old" name="year" value="15.000" />
+                    </label>
+
+                    <label class="label" for="quiteNew">
+                        <span>2011 - 2021</span>
+                        <input type="radio" id="quiteNew" name="year" value="25.000" />
+                    </label>
+
+                    <label class="label" for="new">
+                        <span>2022</span>
+                        <input type="radio" id="new" name="year" value="40.000" />
+                    </label>
+                </fieldset>
+                <fieldset class="fieldset fieldset_">
+                    <legend for="color">Цвет:</legend>
+                    <label class="label" for="red">
+                        <span>Красный</span>
+                        <input type="radio" id="red" name="color" value="5.000">
+                    </label>
+                    <label class="label" for="blue">
+                        <span>Темно-Синий</span>
+                        <input type="radio" id="blue" name="color" value="5.000">
+                    </label>
+                    <label class="label" for="metal">
+                        <span>Серебристый</span>
+                        <input type="radio" id="metal" name="color" value="0">
+                    </label>
+                    <label class="label" for="white">
+                        <span>Белый</span>
+                        <input type="radio" id="white" name="color" value="2.000">
+                    </label>
+
+                    <label class="label" for="black">
+                        <span>Черный</span>
+                        <input type="radio" id="black" name="color" value="0">
+                    </label>
+                </fieldset>
+                <fieldset class="fieldset fieldset_">
+                    <legend for="color">Дополнительное:</legend>
+                    <label class="label" for="leather">
+                        <span>Кожаный салон</span>
+                        <input type="checkbox" id="leather" name="color" value="30.000">
+                    </label>
+                    <label class="label" for="aero">
+                        <span>Аэрография</span>
+                        <input type="checkbox" id="aero" name="color" value="15.000">
+                    </label>
+                    <label class="label" for="stereo">
+                        <span>Стереосистема</span>
+                        <input type="checkbox" id="stereo" name="color" value="10.000">
+                    </label>
+                    <label class="label" for="disks">
+                        <span>Тюнингованные покрышки</span>
+                        <input type="checkbox" id="disks" name="color" value="8.000">
+                    </label>
+                    <label class="label" for="pillows">
+                        <span>4 подушки безопасности</span>
+                        <input type="checkbox" id="pillows" name="color" value="10.000">
+                    </label>
+                    <label class="label" for="black">
+                        <span>Подарочный бант</span>
+                        <input type="checkbox" id="black" name="color" value="0">
+                    </label>
+                </fieldset>
+            </div>
+            <div>
+                <button type="submit">Рассчитать</button>
+            </div>
+        </form>
+        <div class="results"></div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
