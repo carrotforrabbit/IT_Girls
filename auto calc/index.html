@@ -17,15 +17,42 @@
                 <div>
                     <fieldset class="fieldset">
                         <label for="autoType">Марка Автомобиля:</label>
-                        <select class="select" name="autoType" id="autoType">
+                        <select class="select" name="autoType" id="autoType" onchange="changeModel()">
                             <option value=""></option>
                             <option value="300000">KIA</option>
                             <option value="1000000">Ferrari</option>
                             <option value="2000000">Lamborgini</option>
                         </select>
                     </fieldset>
+                    <fieldset class="fieldset fieldset_kia">
+                        <label for="modelKia">Модель Автомобиля:</label>
+                        <select class="select" name="autoModel" id="modelKia">
+                            <option value=""></option>
+                            <option value="300000">type1</option>
+                            <option value="1000000">type2</option>
+                            <option value="2000000">type3</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="fieldset fieldset_ferrari">
+                        <label for="modelFerrari">Модель Автомобиля:</label>
+                        <select class="select" name="autoModel" id="modelFerrari">
+                            <option value=""></option>
+                            <option value="300000">rx3</option>
+                            <option value="1000000">meta</option>
+                            <option value="2000000">fusion</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="fieldset fieldset_lambo">
+                        <label for="modelLambo">Модель Автомобиля:</label>
+                        <select class="select" name="autoModel" id="modelLambo">
+                            <option value=""></option>
+                            <option value="300000">type4</option>
+                            <option value="1000000">type5</option>
+                            <option value="2000000">type6</option>
+                        </select>
+                    </fieldset>
                 </div>
-                <fieldset class="fieldset fieldset_">
+                <fieldset class="fieldset">
                     <legend>Год выпуска:</legend>
                     <label class="label" for="reallyOld">
                         <span> 1990 - 2000</span>

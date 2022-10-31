@@ -66,5 +66,16 @@ form {
 .error {
     width: 400px;
     padding: 10px;
-    background-color: ;
+}
+
+.fieldset_kia {
+    visibility: hidden;
+}
+
+.fieldset_ferrari {
+    visibility: hidden;
+}
+
+.fieldset_lambo {
+    visibility: hidden;
 }
