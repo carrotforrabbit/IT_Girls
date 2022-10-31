@@ -62,3 +62,9 @@ form {
     flex-direction: row;
     justify-content: space-between;
 }
+
+.error {
+    width: 400px;
+    padding: 10px;
+    background-color: ;
+}
