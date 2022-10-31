@@ -25,7 +25,7 @@ function changeModel() {
 
 form.onsubmit = (evt) => {
 	if (autoType.value == '') {
-        error.innerHTML = 'Выбирете марку машины';
+        error.innerHTML = 'Выберите марку машины';
         error.style.border = '1px solid red';
         error.style.backgroundColor = 'lightpink';
     } else {
@@ -40,7 +40,7 @@ form.onsubmit = (evt) => {
 			total = total + Number(services[i].value);
 		}
 	}
-	result.innerHTML = total;
+	result.innerHTML = 'Стоимость машины: ' + total + ' рублей';
     error.innerHTML = '';
     error.style.border = '';
     error.style.backgroundColor = '';
