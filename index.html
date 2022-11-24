@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            width: 400px;
+            display: block;
+            margin: 0 auto;
+            padding-top: 50px;
+            background-color: aquamarine;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #input {
+            width: 400px;
+            padding: 5px 10px;
+            margin: 20px 0;
+        }
+
+        #resultButton {
+            width: 200px;
+            padding: 10px 30px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="input">Введите Ваше Имя Фамилию и Отчество</label>
+        <input type="text" class="inputField" id="input">
+        <button type="submit" class="buttoff" id="resultButton">Показать</button>
+    </div>
+    <div class="container2">
+        <div class="text1 text" id="error"></div>
+        <p class="text">Имя</p>
+        <div class="nameMSG"></div>
+        <p class="text">Фамилия</p>
+        <div class="secondNameMsg"></div>
+        <p class="text">Отчество</p>
+        <div class="fatherNameMsg"></div>
+    </div>
+
+    <script>
+        const input = document.querySelector(".inputField");
+        const btn = document.querySelector('.buttoff');
+        const errorMsg = document.querySelector(".text1");
+        const nameMSG = document.querySelector(".nameMSG");
+        const secondNameMsg = document.querySelector(".secondNameMsg");
+        const fatherNameMsg = document.querySelector(".fatherNameMsg");
+        let names = [];
+
+        btn.addEventListener('click', () => {
+            let name = input.value.toLowerCase();
+            if (name !== '' && /[^0-9]/g.test(input.value)) {
+                names = name.split(' ').filter(Boolean);
+                console.log(names);
+                input.value = '';
+                let arr = [];
+                for (elem of names) {
+                    let result = elem.split('').map((v, index) => index === 0 ? v.toUpperCase() : v).join('');
+                    arr.push(result);
+                }
+                nameMSG.innerHTML = arr[0];
+                secondNameMsg.innerHTML = arr[1];
+                fatherNameMsg.innerHTML = arr[2];
+            } else {
+                errorMsg.innerHTML = "Введите ФИО и не используйте цифры";
+            }
+        })
+
+    </script>
+</body>
+
+</html>
