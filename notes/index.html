@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <style>
+        .container {
+            min-width: 80%;
+        }
+
+        .results {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background-color: darkgray;
+            border: 1px solid black;
+        }
+
+        .note {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 10rem;
+            min-height: 5rem;
+            padding: 10px;
+            margin: 10px;
+            background-color: blanchedalmond;
+            border: 2px solid green;
+            font-size: 1rem;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .button {
+            padding: 10px;
+            background-color: cadetblue;
+            color: beige;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid lightblue;
+        }
+
+        .input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid lightblue;
+        }
+
+        .button:hover {
+            background-color: lightblue;
+            color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" class="input">
+        <button class="btn button" type="" submit>Submit</button>
+        <p class="error"></p>
+        <div class="results"></div>
+        <button class="button clearAll">Delete All Notes</button>
+    </div>
+
+    <script>
+        let input = document.querySelector(".input");
+        let button = document.querySelector(".btn");
+        let results = document.querySelector(".results");
+        let error = document.querySelector(".error");
+        let clear = document.querySelectorAll(".clear");
+        let clearAll = document.querySelector(".clearAll");
+        let allNotes = [];
+
+        document.addEventListener('DOMContentLoaded', function (event) {
+            const notesString = localStorage.getItem('notes');
+            if (notesString !== null) {
+                allNotes = JSON.parse(notesString);
+            }
+            if (allNotes.length > 0) {
+                for (let note of allNotes) {
+                    results.innerHTML += note;
+                }
+            }
+            for (let i = 0; i < clear.length; i++) {
+                clear[i].onclick = function () {
+                    this.parentNode.remove();
+                    allNotes.pop();
+                }
+            }
+        }
+        )
+
+        button.addEventListener('click', () => {
+            if (input.value !== '') {
+                addElement(input.value);
+            } else {
+                error.innerHTML = "Add your note!";
+            }
+
+            function addElement() {
+                let newStrForAdding = `<p class="note">${input.value}
+                                        <button class="clear button">Done</button>
+                                    </p>`;
+                results.innerHTML += newStrForAdding;
+                allNotes.push(newStrForAdding);
+
+                for (let i = 0; i < clear.length; i++) {
+                    clear[i].onclick = function () {
+                        this.parentNode.remove();
+                        allNotes.pop();
+                    }
+                }
+                input.value = '';
+            }
+            localStorage.setItem('notes', JSON.stringify(allNotes));
+        })
+
+        clearAll.addEventListener('click', () => {
+            localStorage.clear();
+            results.innerHTML = '';
+        })
+
+    </script>
+</body>
+
+</html>
