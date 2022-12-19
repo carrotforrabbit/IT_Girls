@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+
+    <style>
+        body {
+            margin-top: 100px;
+            display: block;
+            background: linear-gradient(123.5deg, rgb(244, 219, 251) 29.3%, rgb(255, 214, 214) 67.1%);
+        }
+
+        button {
+            display: block;
+            padding: 20px;
+            margin: 0 auto;
+            background: linear-gradient(111.4deg, rgb(55, 168, 192) -0.2%, rgb(103, 187, 125) 100.2%);
+            color: white;
+            border: 3px solid greenyellow;
+            border-radius: 20px;
+            font-size: 30px;
+        }
+
+        button:hover {
+            background: linear-gradient(91.1deg, rgb(57, 31, 105) -2.3%, rgb(115, 43, 155) 44.4%, rgb(231, 75, 184) 103.4%);
+            border: 3px solid deeppink;
+        }
+
+        button:active {
+            background: darkblue;
+            border: 3px solid deeppink;
+        }
+
+        .button-container {
+            width: 350px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        input {
+            display: flex;
+            margin: 0 auto 50px;
+            padding: 5px;
+            height: 35px;
+            border: 2px solid rgb(231, 75, 184);
+            border-radius: 20px;
+        }
+
+        .result-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .label-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #results {
+            margin-left: 5px;
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+        }
+
+        .delete {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="label-container">
+        <label for="number1">Напишите первое число</label>
+        <input id="number1" type="text">
+    </div>
+    <div class="label-container">
+        <label for="number2">Напишите второе число</label>
+        <input id="number2" type="text">
+    </div>
+    <p>Нажмите на знак операции:</p>
+    <div class="button-container">
+        <button onclick="calcSum()">+</button>
+        <button onclick="calcSubstraction()">-</button>
+        <button onclick="calcDevision()">/</button>
+        <button onclick="calcMultiply()">*</button>
+    </div>
+    <div class="result-container"> Результат:
+        <div id="results"></div>
+    </div>
+    <button class="delete" type="button" onclick="clearInput()">Сбросить</button>
+
+    <script>
+
+        let x = document.getElementById('number1');
+        let y = document.getElementById('number2');
+        let result = document.getElementById('results');
+
+        class Calculator {
+            static calcSum(x, y) {
+                let result = (+x.value + +y.value);
+                results.innerHTML = x.value + " + " + y.value + " = " + result;
+            }
+
+            static calcSubstraction(x, y) {
+                let result = (x.value - y.value);
+                results.innerHTML = x.value + " - " + y.value + " = " + result;
+            }
+
+            static calcDevision(x, y) {
+                let result = (x.value / y.value);
+                results.innerHTML = x.value + " / " + y.value + " = " + result;
+            }
+
+            static calcMultiply(x, y) {
+                let result = (x.value * y.value);
+                results.innerHTML = x.value + " * " + y.value + " = " + result;
+            }
+        }
+
+        function calcSum() {
+            Calculator.calcSum(x, y);
+        }
+        function calcSubstraction() {
+            Calculator.calcSubstraction(x, y);
+        }
+        function calcDevision() {
+            if (y.value == 0) {
+                results.innerHTML = "Cannot devide by zero!";
+            } else {
+                Calculator.calcDevision(x, y);
+            }
+        }
+        function calcMultiply() {
+            Calculator.calcMultiply(x, y);
+        }
+
+        function clearInput() {
+            document.getElementById('number1').value = null;
+            document.getElementById('number2').value = null;
+            results.innerHTML = null;
+        }
+    </script>
+</body>
+
+</html>

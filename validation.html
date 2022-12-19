@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Validation {
+            static isEmail(string) {
+                if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            static isDomain(string) {
+                if (/^((?!-)[A-Za-z0-9-]{1,63})?/.test(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            static isPhone(string) {
+                if (/^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/.test(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            static isDate(string) {
+                if (/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/.test(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        console.log(Validation.isEmail('parasyuta.anna@gmail.com'));
+        console.log(Validation.isDomain('gmail.com'));
+        console.log(Validation.isPhone('+351 912-305-756'));
+        console.log(Validation.isDate('29-02-2000'));
+
+        class Validator {
+            isEmail(string) {
+                if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            isDomain(string) {
+                if (/^((?!-)[A-Za-z0-9-]{1,63})?/.test(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            isPhone(string) {
+                if (/^ [\+] ? [(] ? [0 - 9]{ 3 } [)] ? [-\s\.] ? [0 - 9]{ 3 } [-\s\.] ? [0 - 9]{ 4, 6 } $/.test(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            isDate(string) {
+                if (/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/.test(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        let validator = new Validator;
+        console.log(Validation.isEmail('parasyuta.anna@gmail.com'));
+        console.log(Validation.isDomain('gmail.com'));
+        console.log(Validation.isPhone('+351912305756'));
+        console.log(Validation.isDate('29-02-2000'));
+    </script>
+</body>
+
+</html>

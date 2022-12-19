@@ -58,57 +58,58 @@
             <legend class="heading">Личные данные:</legend>
             <div>
                 <label for="cat-name">Кличка вашего котика</label>
-                <input type="text" name="cat-name" required>
+                <input class="nameCat" type="text" name="cat-name" required>
             </div>
             <div>
                 <label for="owner-name">Ваше имя как владельца</label>
-                <input type="text" name="owner-name" required>
+                <input class="ownerName" type="text" name="owner-name" required>
             </div>
         </fieldset>
         <div>
             <label class="heading" for="breed">Порода Вашего питомца:</label>
-            <select name="breed" required>
-                <option value="cheap">Персидская</option>
-                <option value="expansive">Мейнкун</option>
-                <option value="popular">Ориентал</option>
-                <option value="cheap">Невская Маскарадная</option>
-                <option value="expansive">Двортерьер</option>
-                <option value="popular">Русская голубая</option>
+            <select class="breed" name="breed" required>
+                <option value="Персидская">Персидская</option>
+                <option value="Мейнкун">Мейнкун</option>
+                <option value="Ориантал">Ориентал</option>
+                <option value="Неская Маскарадная">Невская Маскарадная</option>
+                <option value="Двортерьер">Двортерьер</option>
+                <option value="Русская голубая">Русская голубая</option>
             </select>
         </div>
         <div>
             <p class="heading">Что ест Ваш питомец:</p>
             <div>
-                <input type="checkbox" id="regular-food">
+                <input class="checkbox" type="checkbox" value="regular-food">
                 <label for="regular-food">Сухой корм</label>
             </div>
             <div>
-                <input type="checkbox" id="natural-food">
+                <input class="checkbox" type="checkbox" value="natural-food">
                 <label for="natural-food">Натуральный корм</label>
             </div>
             <div>
-                <input type="checkbox" id="pate-food">
+                <input class="checkbox" type="checkbox" value="pate-food">
                 <label for="pate-food">Консервы и паштеты</label>
             </div>
             <div>
-                <input type="checkbox" id="everything-food">
+                <input class="checkbox" type="checkbox" value="everything-food">
                 <label for="everything-food">Мой кот на подножном корме</label>
             </div>
             <div>
-                <input type="checkbox" id="vegan-food">
+                <input class="checkbox" type="checkbox" value="vegan-food">
                 <label for="vegan-food">Мой кот веган</label>
             </div>
 
         </div>
         <div>
             <p class="heading">Ваш питомец:</p>
-            <div><input type="radio" name="sex"><label for="sex">Самец</label></div>
-            <div><input type="radio" name="sex"><label for="sex">Самка</label></div>
-            <div><input type="radio" name="sex"><label for="sex">Не определился</label></div>
+            <div><input class="radio" type="radio" value="male" name="sex"><label for="sex">Самец</label></div>
+            <div><input class="radio" type="radio" value="female" name="sex"><label for="sex">Самка</label></div>
+            <div><input class="radio" type="radio" value="don't know yet" name="sex"><label for="sex">Не
+                    определился</label></div>
         </div>
         <div>
             <p class="heading">Комментарии:</p>
-            <textarea name="owener-comment" id="comments" cols="30" rows="10"></textarea>
+            <textarea name="owner-comment" id="comments" cols="30" rows="10"></textarea>
         </div>
         <div>
             <p class="heading">Здесь Вы можете загрузить фотографию Вашего котика <br></p>
@@ -117,6 +118,42 @@
         <br>
         <button class="btn" type="submit">Отправить</button>
     </form>
+
+    <script>
+        let btn = document.querySelector('.btn');
+
+        btn.addEventListener('click', () => {
+
+            let catName = document.querySelector('.nameCat').value;
+            let ownerName = document.querySelector('.ownerName').value;
+            let breed = document.querySelector('.breed').value;
+            let food = document.querySelectorAll('.checkbox:checked');
+            let sex = document.querySelectorAll('.radio:checked')
+
+            class Cat {
+                constructor(catName, ownerName, breed, food, sex) {
+                    this.catName = catName;
+                    this.ownerName = ownerName;
+                    this.breed = breed;
+                    this.food = food;
+                    this.sex = sex;
+                }
+            }
+
+            let checkedValues = Array.from(food).map(cb => cb.value);
+            let checkedRadios = Array.from(sex).map(cb => cb.value);
+
+            let cat1 = new Cat();
+
+            console.log(`The cat's name is ${catName} `);
+            console.log(`The cat owner's name is ${ownerName}`);
+            console.log(`The cat's breed is ${breed}`);
+            console.log(`The cat's food is ${checkedValues}`);
+            console.log(`The cat's sex is ${checkedRadios}`);
+        })
+
+
+    </script>
 </body>
 
 </html>
